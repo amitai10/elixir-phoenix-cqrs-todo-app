@@ -53,6 +53,17 @@ config :todo, Todo.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "todo_dev",
+  database: "todo_readstore_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :eventstore, EventStore.Storage,
+  serializer: Commanded.Serialization.JsonSerializer,
+  username: "postgres",
+  password: "postgres",
+  database: "todo_eventstore_dev",
+  hostname: "localhost",
+  pool_size: 10
+
+
+

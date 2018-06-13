@@ -20,7 +20,7 @@ defmodule Todo.Mixfile do
   def application do
     [
       mod: {Todo.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :eventstore]
     ]
   end
 
@@ -40,7 +40,12 @@ defmodule Todo.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:commanded, "~> 0.16"},
+      {:commanded_eventstore_adapter, "~> 0.3"},
+      {:uuid, "~> 1.1"},
+      {:exconstructor, "~> 1.1"},
+      {:commanded_ecto_projections, "~> 0.6"},
     ]
   end
 

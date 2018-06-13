@@ -14,6 +14,7 @@ defmodule Todo.Application do
       supervisor(TodoWeb.Endpoint, []),
       # Start your own worker by calling: Todo.Worker.start_link(arg1, arg2, arg3)
       # worker(Todo.Worker, [arg1, arg2, arg3]),
+      supervisor(Todo.General.Supervisor, []),
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
