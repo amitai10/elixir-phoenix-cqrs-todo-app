@@ -11,7 +11,7 @@ defmodule TodoWeb.TaskView do
   end
 
   def render("task.json", %{task: task}) do
-    %{id: task.id,
+    %{id: task.uuid,
       title: task.title,
       done: task.done}
   end

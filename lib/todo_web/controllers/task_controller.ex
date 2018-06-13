@@ -12,12 +12,17 @@ defmodule TodoWeb.TaskController do
   end
 
   def create(conn, %{"task" => task_params}) do
-    with {:ok, %Task{} = task} <- General.create_task(task_params) do
-      conn
-      |> put_status(:created)
-      |> put_resp_header("location", task_path(conn, :show, task))
-      |> render("show.json", task: task)
-    end
+    General.create_task(task_params) 
+    conn
+    |> put_status(:created)
+    |> json %{result: "ok"}
+
+    # with {:ok, %Task{} = task} <- General.create_task(task_params) do
+    #   conn
+    #   |> put_status(:created)
+    #   |> put_resp_header("location", task_path(conn, :show, task))
+    #   |> render("show.json", task: task)
+    # end
   end
 
   def show(conn, %{"id" => id}) do

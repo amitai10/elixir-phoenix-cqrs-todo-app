@@ -46,6 +46,7 @@ defmodule Todo.Mixfile do
       {:uuid, "~> 1.1"},
       {:exconstructor, "~> 1.1"},
       {:commanded_ecto_projections, "~> 0.6"},
+      {:cors_plug, "~> 1.5"},
     ]
   end
 

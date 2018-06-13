@@ -10,6 +10,7 @@ defmodule TodoWeb.Router do
   end
 
   pipeline :api do
+    plug CORSPlug, origin: "*"
     plug :accepts, ["json"]
   end
 
@@ -23,5 +24,6 @@ defmodule TodoWeb.Router do
     pipe_through :api
 
     post "/tasks", TaskController, :create
+    get "/tasks", TaskController, :index
   end
 end

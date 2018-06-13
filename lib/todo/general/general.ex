@@ -10,7 +10,7 @@ defmodule Todo.General do
   alias Todo.General.Commands.AddTask
   alias Todo.Router
 
-  def add_task(attrs \\ %{}) do
+  def create_task(attrs \\ %{}) do
     attrs
     |> assign_uuid(:task_uuid)
     |> AddTask.new()
@@ -18,9 +18,6 @@ defmodule Todo.General do
   end
 
   defp assign_uuid(attrs, identity), do: Map.put(attrs, identity, UUID.uuid4())
-
-
-
 
   @doc """
   Returns the list of tasks.
@@ -51,23 +48,6 @@ defmodule Todo.General do
   """
   def get_task!(id), do: Repo.get!(Task, id)
 
-  @doc """
-  Creates a task.
-
-  ## Examples
-
-      iex> create_task(%{field: value})
-      {:ok, %Task{}}
-
-      iex> create_task(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def create_task(attrs \\ %{}) do
-    %Task{}
-    |> Task.changeset(attrs)
-    |> Repo.insert()
-  end
 
   @doc """
   Updates a task.
